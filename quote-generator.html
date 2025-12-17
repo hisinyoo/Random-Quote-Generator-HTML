@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef3f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .quote-box {
+            background: white;
+            width: 380px;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 18px;
+            font-style: italic;
+            color: #334155;
+            margin-bottom: 15px;
+        }
+
+        .author {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 12px 22px;
+            background: #0b66ff;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quote-box">
+        <div class="quote" id="quote">Klik tombol untuk mendapatkan kutipan.</div>
+        <div class="author" id="author"></div>
+        <button onclick="generateQuote()">Quote Baru</button>
+    </div>
+
+    <script>
+        const quotes = [
+            { text: "Kesuksesan dimulai dari keberanian untuk mencoba.", author: "Unknown" },
+            { text: "Belajar hari ini, memimpin di masa depan.", author: "Aditya Arsyil" },
+            { text: "Kode yang baik dibangun dari konsistensi.", author: "Developer" },
+            { text: "Jangan takut gagal, takutlah untuk berhenti belajar.", author: "Motivasi" },
+            { text: "Teknologi adalah alat, kreativitas adalah kuncinya.", author: "DevSpark Indonesia" }
+        ];
+
+        function generateQuote() {
+            const random = Math.floor(Math.random() * quotes.length);
+            document.getElementById("quote").innerText = `"${quotes[random].text}"`;
+            document.getElementById("author").innerText = `— ${quotes[random].author}`;
+        }
+    </script>
+
+</body>
+</html>
